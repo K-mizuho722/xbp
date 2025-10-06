@@ -1,42 +1,243 @@
 <!DOCTYPE html>
 <html lang="jp">
 <head>
-    <!-- ⑥↓タイトルを変えてみよう -->
-    <title>mizuhoのテストページ</title>
-    <!-- ⑤スタイルシートの設定をしよう -->
+    <!-- タイトル -->
+    <title>第一回</title>
+    <!-- スタイルシート -->
     <!-- h1.htmlからある行をコピペしてくればOK -->
      <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <h1>見出し</h1>
     <!-- 塊ごとにdivタグで区切るようにしましょう。 -->
+<h1>第一回</h1>
+
+    <!-- 目次 -->
+<h2>□ 目次</h2>
+<ul>
+    <li><a href="#git">gitについて</a></li>
+    <ul>
+        <li><a href="#git toha">gitとは？</a></li>
+        <li><a href="#git tigai">注意！gitとgithubの違い</a></li>
+<div style="height: 5px;"></div>
+
+    </ul>
+    <li><a href="#html">htmlについて</a></li>
+    <ul>
+        <li><a href="#html toha">htmlとは？</a></li>
+        <li><a href="#html tag">これだけは覚えておけ！タグ紹介</a></li>
+        <li><a href="#html katuyou">実際に見てみよう！活用</a></li>
+    </ul>
+<div style="height: 5px;"></div>
+    <li><a href="#css">おまけ cssについて</a></li>
+    <ul>
+        <li><a href="#css toha dekiru">cssとは？ 何ができる？</a></li>
+    </ul>
+    <li><a href="#sankou">参考リンク</a></li>
+    </dr>
+</ul>
+<div style="height: 50px;"></div>
     <div>
-         <!-- ①↓に文字を書いてみよう -->
-        こんにちは<br>
-        あ</br>
-         <!-- ②↓に画像（imagesフォルダにあるtest.png）を挿入してみよう -->
-        <img src="./images/testimage.png" width="75%"><br>
-        <img src="./images/testimage.png" width="50%"><br>
-        <img src="../images/0_XBlogo.png" width="25%"><br>
-        <img src="../images/ミャクミャク.png" width="25%"><br>
 
-         <!-- ③↓に箇条書きをしてみよう -->
-        <ol>
-            <li>あいうえお
-            <li>かきくけこ
-        </ol>
-         <!-- ④↓に外部リンクを作ってみよう -->
-        <a href="./index.html">デザイン演習I・IIトップページ</a><dr>
-        <a href="../index.html">XBPトップページ</a><dr>
-        <a href="https://www.yahoo.co.jp/" target="_blank">Yahoo</a><br>
-        <a href="./files/test.pdf" target="_blank">pdfファイル</a>
-        </dr>
-
-        <div class="video"></div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/Ywj_w-vl0co?si=CnpEJptuxGAzREal" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-
+     <!-- git -->
+<p><h2 id="git">gitについて</h2>
+    <h3 id="git toha"> ★ gitとは？</h3>
+    gitとは、ソースコードや変更履歴を管理するために使われる<b>「管理」システム</b><br>
+    複数人の編集者がいて定期的に編集作業が必要な場合、<br>
+    <div style="height: 35px;"></div>
+    <ul>
+    <li>データファイルが増える → どのファイルを編集すればいいかがわからなくなる → 作業効率が落ちる<br></li>
+    <li>誤ったファイルを更新 → データが消える → 作業効率が落ちる<br></li>
+    </ul>
+    <div style="height: 35px;"></div>
+    となってしまいがち<br>
+    それを解決するために<b>「git」</b>が生まれた<br>
+    <div style="height: 15px;"></div>
+    gitのようなバージョン管理システムを使えば、いつ・誰が・何をといった【変更履歴】と共にファイルを保存ができる!<br>
+    <div style="height: 15px;"></div>
+    変更履歴が残っているため、誤って上書きしても必要なところまで戻すことができるので、ファイル数を増やす必要がなくなる<br>
+    <div style="height: 20px;"></div>
+    <h4>イメージイラスト</h4>
+     ○ どっちが作業しやすいと思いますか？？<br>
+     <div style="height: 10px;"></div>
+    before : どんどんファイルが増えていく&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;after : 一つのファイル内で完結
+    <div style="height: 10px;"></div>
+    <img src="../images/takusan.PNG" width="15%">
+    &emsp;&emsp;&emsp;&emsp;&emsp;
+    →
+    &emsp;&emsp;&emsp; &emsp;&emsp;     
+    <img src="../images/hitotu.PNG" width="15%"><br>
+    <div style="height: 50px"></div>
+    日常にあるもので例えてみよう！<br>
+     ○ どっちが情報を掴みやすいですか？？<br>
+<div style="height: 10px;"></div>
+    before : 複数人でペタペタ付箋を壁に貼っていく&emsp;&emsp;&emsp;&emsp;after : 各々が書いたルーズリーフにいつ・誰と見出しをつけて、ファイルノートに保管<br>
+        <img src="../images/husen.png" width="15%">
+    &emsp;&emsp;&emsp;&emsp;&emsp;
+    →
+    &emsp;&emsp;&emsp; &emsp;&emsp;     
+    <img src="../images/ru-zuri-hu.png" width="15%"><br>
+    <div style="height: 50px;"></div>
+    <h3 id="git tigai"> ★ 注意！gitとgithubの違い</h3>
+    「git」は履歴を管理するツール自体の名前<br>
+    「github」はgitを使った、Webサービス<br>
+     例えるなら<br>
+     <ul>
+     <p>git=大学<br>
+    github=神奈川大学</p><br>
+    </ul>
+    のような感じ<br>
+    勘違いしやすいから注意！！
     </div>
+<div style="height: 70px;"></div>
+
+    <!-- html -->
+    <div>
+    <p><h2 id="html">htmlについて</h2>
+    <h3 id="html toha">★ htmlとは？</h3>
+    htmlとは、<b>「ハイパー・テキスト・マークアップ・ランゲージ(Hyper Text Markup Language)</b>の略<br>
+    Webページを作るための、コンピュータが理解できる言語<br>
+    <div style="height: 10px;"></div>
+    文字をコンピュータに書かせるだけじゃなく、タイトルや見出し、改行、示したいものに合わせて書かなければならない<br>
+    <div style="height: 50px;"></div>
+    <h3 id="html tag">★ これだけは覚えておけ！タグ紹介</h3>
+        <p style="text-indent: 1em;">
+            <h4>◼︎ タグ一覧 - 授業内で扱ったもの - </h4></p>
+            <ul>
+                <li>＜head＞</li>
+                    ページの内部情報を記述するタグ。見た目に直接影響しないようなデータなどが記載。
+                <div style="height: 10px;"></div>
+                <li>＜body＞</li>
+                    Webページの見た目の部分を記述するタグ。見出し、本文、画像とか。
+                <div style="height: 10px;"></div>
+                <li>＜title＞</li>
+                    サイトのタイトルを指定するタグ。ブラウザのタブや検索結果に表示される。
+                <div style="height: 10px;"></div>
+                <li>＜h1＞〜＜h6＞</li>
+                    見出しを作成するタグ。h1が最も大きく、h6が最も小さい。
+                <div style="height: 10px;"></div>
+                <li>＜div＞</li>
+                    グループ化するためのタグ。特別な意味はない。 division の略。
+                <div style="height: 10px;"></div>
+                <li>＜br＞</li>
+                    改行するためのタグ。 break の略。
+                <div style="height: 10px;"></div>
+                <li>＜img＞</li>
+                    画像を表示させるタグ。<br>
+                    imgタグの src 属性に画像を記載。 width 属性で幅を指定できる。<br>
+                    形： ＜img src="./ 画像の記載 " width="○%"＞<br>
+                    <div style="height: 5px;"></div>
+                    [階層について]<br>
+                    src=の後のドット「.」は階層を表している。<br>
+                    「./」は同じ階層、そこから「.」が増えるごとに階層が上がっていく。<br>
+                    <div style="height: 5px;"></div>
+                    【注意】 スマホなどで撮影した写真は解像度が高く、サイズが大きい。<br>
+                    そのまま記載してしまうと、表示スピードが遅くなってしまう可能性があルため、必要に応じて写真サイズを変える必要がある。<br>
+                <div style="height: 10px;"></div>
+                <li>＜li＞</li>
+                    リストの各項目を記述するタグ。 list item の略。
+                <div style="height: 10px;"></div>
+                <li>＜a＞</li>
+                    リンクを埋め込むタグ。 anchor の略。
+                <div style="height: 10px;"></div>
+                <li>＜ol＞</li>
+                    順序(1.2...)のある箇条書きリストのタグ。 ordered list の略。
+                <div style="height: 10px;"></div>
+                <li>＜ul＞</li>
+                    順序のない箇条書きリストのタグ。 unordered list の略。
+                <div style="height: 10px;"></div>
+            </ul>
+    <div style="height: 50px;"></div>
+        </dr>
+    <h3 id="html katuyou"> ★ 実際に見てみよう！活用</h3>
+    <div style="height: 5px;"></div>
+    今見ているこのページの実際のhtmlがこんな感じです！<br>
+    <div style="height: 5px;"></div>
+    <img src="../images/1-.png" width="30%">
+    <img src="../images/40-.png" width="30%">
+    <img src="../images/80-.png" width="30%"><br>
+    <img src="../images/120-.png" width="30%">
+    <img src="../images/160-.png" width="30%">
+    <img src="../images/200-.png" width="30%"><br>
+    <div style="height: 5px;"></div>
+    ぜひ見比べてください！！<br>
+
+    <div style="height: 50px";></div>
+    ↓ 授業内で扱ったもの以外にこのHPを作る際に使ったタグや特殊文字、情報など<br>
+    <ul>
+        <li>＜b＞</li>
+            文字を太文字にするタグ。
+        <div style="height: 10px;"></div>
+        <li>＜p＞</li>
+            テキストの段落を作成するタグ。<br>
+            ＜br＞は文章中に改行、＜p＞で囲った文章の前後に1行の改行が発生。
+        <div style="height: 10px;"></div>
+        <li>属性とは</li>
+            タグを使うときのオプションのようなもの。<br>
+            基本の形：＜タグ 属性="属性値"＞＜/タグ＞<br>
+            <p>今回は<br>
+            <ol>
+                <li>＜img＞で src </li>
+                <li>＜a＞で href </li>
+                <li>＜div＞で style height </li>
+                <li>＜h2＞＜h3＞で id </li>
+            </ol>
+            </p>
+        を使用。
+         <div style="height: 10px;"></div>
+        <li>ページ内リンク(目次部分)の作り方</li>
+            見出しの部分(<a href="#git">gitについて</a>、<a href="#html">htmlについて</a>など)に id属性 を使って名前(識別子)を付ける<br>
+            ＜a＞タブで指定。
+         <div style="height: 10px;"></div>
+         <li>空白の入れ方</li>
+            ＜div style="height: ○px;"＞＜/div＞<br>
+            ○の部分に数字を入れる。
+        <li>特殊文字での空白の入れ方</li>
+            「＆nbsp;」を入れる。<br>
+             大きさの少しずつ違う空白として、「＆ensp;」「＆emsp;」「＆thinsp;」がある。<br>
+        <li>緑色の文字の意味と使い方</li>
+            コメント。メモ書きのようなもの。ブラウザには表示されない。自分や他の人がコードを見たときにどこに何が書いてあるかわかるようにするもの。
+    </ul>
+    </div>
+    </p>
+<div style="height: 70px;"></div>
+
+<!-- css -->
+    <div>
+<h2 id="css">おまけ cssについて</h2>
+    <h3 id="css toha dekiru"> ★ cssとは？何ができる？</h3>
+    cssとは、カスケーディング・スタイル・シート(Cascadhing Style Sheet)の略。<br>
+    Webページ上のデザインを整えるために使用する。<br>
+    文字の大きさ、フォント、色、余白などを簡単に変えることができる。<br>
+    cssを工夫することにより、情報を見やすくすることができる。<br>
+<div style="height: 10px;"></div>
+   <p> 今回は、
+    <ol>
+        <li>背景の色</li>
+        <li>余白の幅</li>
+    </ol>
+    を変えました！</p>
+    </div>
+
+    <!-- 参考 -->
+<div>
+<div style="height: 70px;"></div>
+    <h2 id="sankou">参考リンク</h2>
+    <ul>
+        <li><a href="https://webst8.com/code/vscode-file-create/" target="_blank">VSCodeでHTML・CSSファイルを作成する手順</a></li>
+        <li><a href="https://uenokaki.com/beginners-guide-writing-html-css-vscode/#index_id6" target="_blank">【初心者必見】VS CodeでHTML/CSSを書いてみよう！</a></li>
+        <li><a href="https://developer.mozilla.org/ja/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content" target="_blank">HTML: コンテンツの作成</a></li>
+        <li><a href="https://zero-plus.io/media/html-tags-and-usage/" target="_blank">【初心者必見】よく使われるHTMLタグ一覧！使用箇所＆目的別で解説</a></li>
+        <li><a href="https://qiita.com/mkato1013/items/afb7b9d6cdf7d3c12de4" target="_blank">[HTML]aタグとlinkタグの違い</a></li>
+        <li><a href="https://rent-web.jp/post-224/" target="_blank">HTMLで特殊文字を使ってスペースを入れる方法</a></li>
+        <li><a href="https://www.kagoya.jp/howto/it-glossary/develop/git/" target="_blank">【入門】Gitとは？できることや使い方、GitHubとの違いをわかりやすく解説</a></li>
+        <li><a href="https://qiita.com/True-one/items/d698ebc2346ad184fd3f" target="_blank">【Git】と【github】の違いとは？</a></li>
+        <li><a href="https://schoo.jp/matome/article/1635" target="_blank">HTMLとは？初心者向けに基礎知識を分かりやすく解説</a></li>
+        <li><a href="https://blog.proglus.jp/3912/" target="_blank">HTMLに欠かせない「属性」とは？画像の表示方法を例にわかりやすく解説！</a></li>
+        <li><a href="https://developer.mozilla.org/ja/docs/Web/HTML/Reference/Attributes" target="_blank">HTML 属性リファレンス</a></li>
+        <li><a href="https://job-support.ne.jp/blog/html/explain-comment-out" target="_blank">HTMLのコメントアウトはどう書く？書き方の具体例や注意点を解説</a></li>
+        <li><a href="https://schoo.jp/matome/article/1676" target="_blank">CSSとは？意味や基本の書き方・使い方を初心者向けに解説！</a></li>
+    </ul>
+</div>
 
 </body>
 </html>
