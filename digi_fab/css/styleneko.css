@@ -28,8 +28,8 @@ body {
    =============================== */
 header {
   position: relative;
-  background: linear-gradient(to right, #c9e6ff, #e0f3ff);
-  color: #003366;
+  background: linear-gradient(to right, #ffffff, #fff700);
+  color: #000000;
   text-align: center;
   padding: 2rem 1rem 4rem;
   overflow: hidden; /* 猫がはみ出さないように */
@@ -48,51 +48,15 @@ header nav {
 header nav a {
   margin: 0 1rem;
   text-decoration: none;
-  color: #005b8f;
+  color: #003366;
   font-weight: bold;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 header nav a:hover {
-  color: #007acc;
+  color: #00cc88;
   transform: scale(1.1);
 }
-
-/* ===============================
-   🐈‍⬛ 黒猫シルエットアニメーション（ヘッダー内・大きめ・右→左スタート）
-   =============================== */
-.cat {
-  position: absolute;
-  bottom: 0;               /* ヘッダー内の下 */
-  right: -150px;           /* 右端外からスタート */
-  width: 150px;            /* 大きめサイズ */
-  height: 100px;
-  background-image: url('./nyansiruetto.png'); /* ←自分の猫画像に置き換え */
-  background-size: contain;
-  background-repeat: no-repeat;
-  animation: runCat 12s linear infinite;
-  opacity: 0.9;
-  pointer-events: none;
-}
-
-@keyframes runCat {
-  0% {
-    right: -150px;          /* 右端外から登場 */
-    transform: scaleX(-1);  /* 左向き */
-  }
-  50% {
-    right: calc(100% + 150px);
-    transform: scaleX(-1);  /* 左向きのまま */
-  }
-  51% {
-    transform: scaleX(1);   /* 向きを反転 */
-  }
-  100% {
-    right: -150px;
-    transform: scaleX(1);   /* 右向きでスタートに戻る */
-  }
-}
-
 /* ===============================
    🧾 セクション
    =============================== */
@@ -139,7 +103,7 @@ h2 {
    =============================== */
 .toc {
   display: inline-block;
-  background-color: #e8f4fa;
+  background-color: #fff70051;
   padding: 1rem 1.5rem;
   border-radius: 12px;
   margin: 2rem 0;
