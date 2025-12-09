@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* 冒頭でimport */
+@import url('https://fonts.googleapis.com/css?family=Raleway:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap&subset=japanese');
+/* フォントを指定したいところで */
+
+logo img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* 画像のトリミング */
+}
+
+logotohome img{
+    border-radius: 70%;
+    width: 70px;
+    height: 70px;
+    object-fit: cover; /* 画像のトリミング */
+}
+
+
+/* ===============================
+   🧾 セクション
+   =============================== */
+section {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: left; /* レイアウト基準は左 */
+}
+
+/* 見出し */
+h2 {
+  color: #222;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.3rem;
+}
+
+/* ✅ section内のh2をセンター揃え */
+section h2 {
+  text-align: center;
+}
+
+/* ✅ section内の文章をセンター揃え */
+section p,
+section li {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+
+/* ========== common ========== */
+html, body {
+	font-size: 15px;
+	font-family: sans-serif;
+	color: #393939;
+    margin-left: 15px;
+    margin-bottom: 40px;
+	background: #effffa60;
+}
+h1{
+    text-indent: 0em;
+}
+h2{
+    margin-left: 0em;
+    margin-top: 0em;
+}
+h3{
+    margin-left: 0em;
+}
+h4{
+    margin-left: 2em;
+}
+div{
+    margin-top: 0em;
+    margin-left: 0em;
+}
+p{
+    margin-left: 0em;
+}
+span.blackback{
+    text-indent: 0em;
+    background: #393939;
+    color: #efefef;
+}
