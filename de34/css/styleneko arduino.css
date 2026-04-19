@@ -29,7 +29,7 @@ body {
    =============================== */
 header {
   position: relative;
-  background: linear-gradient(to right, #ffffff, #848484cf);
+  background: linear-gradient(to right, #ffffff, #b7ffb6);
   color: #000000;
   text-align: center;
   padding: 2rem 1rem 4rem;
@@ -133,7 +133,7 @@ section li {
    =============================== */
 .toc {
   display: inline-block;
-  background-color: #00ffd951;
+  background-color: #b7ffb651;
   padding: 1rem 1.5rem;
   border-radius: 12px;
   margin: 2rem 0;
@@ -174,12 +174,44 @@ section li {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
+.code-box {
+  position: relative;
+}
+
+pre {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 10px;
+  overflow-x: auto;
+  max-width: 450px;
+  font-size: 0.9rem;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #00cc88;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.copy-btn:hover {
+  background-color: #009966;
+}
+
+
 /* ===============================
    🪶 フッター
    =============================== */
 footer {
   margin-top: 3rem;
-  background-color: #848484;
+  background-color: #b7ffb6;
   padding: 1.5rem;
   color: #333;
   font-size: 0.9rem;
