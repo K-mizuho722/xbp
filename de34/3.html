@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <!-- ⑥↓タイトルを変えてみよう -->
+    <title>mizuho flask</title>
+    <!-- ⑤スタイルシートの設定をしよう -->
+    <!-- h1.htmlからある行をコピペしてくればOK -->
+     <link rel="stylesheet" href="./css/styleneko flask.css">
+</head>
+<body>
+
+<header>
+  <h1>第3回 Flask</h1>
+</header>
+
+<!-- 目次 -->
+<div class="toc">
+  <a href="#flask">Flaskとは</a>
+  <a href="#frontback">フロントエンドとバックエンド</a>
+  <a href="#structure">Flaskの基本構成</a>
+  <a href="#variable">変数をHTMLに渡す</a>
+  <a href="#forif">for文とif文の応用</a>
+  <a href="#csv">CSVファイルを読み込む</a>
+</div>
+
+<!-- Flaskとは -->
+<section id="flask">
+  <h2>Flaskとは</h2>
+
+  <p>
+    Flaskとは、PythonでWebアプリを作るためのフレームワーク。<br>
+    少ないコードでWebページを表示したり、データ処理を行ったりできる。
+  </p>
+
+  <div class="point">
+    <p>
+      授業では、Flaskのインストール、基本構成、<br>
+      for文・if文、CSVファイルの読み込みなどを行なった。
+    </p>
+  </div>
+</section>
+
+<!-- フロントエンドとバックエンド -->
+<section id="frontback">
+  <h2>フロントエンドとバックエンド</h2>
+
+  <div class="image-row">
+
+    <img src="../images/frontback.png"
+         alt="フロントエンドとバックエンド">
+
+    <div class="text">
+      <p>
+        フロントエンドは、ユーザーが見る画面の部分。<br>
+        バックエンドは、裏側でデータ処理を行う部分。<br>
+        Flaskは主にバックエンドとして使われる。
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Flaskの基本構成 -->
+<section id="structure">
+  <h2>Flaskの基本構成</h2>
+
+  <p>
+    Flaskでは、app.pyに処理を書き、HTMLファイルを表示する。<br>
+    @app.route("/") は、トップページにアクセスされた時に実行される処理。
+  </p>
+
+  <div class="image-row">
+
+    <div class="text">
+      <h2>app.py</h2>
+      <p>
+        render_templateを使うことでHTMLファイルを表示できる。
+      </p>
+    </div>
+
+    <div class="code-box">
+
+      <pre id="code1"><code>
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template("index.html")
+
+if __name__ == '__main__':
+    app.run()
+      </code></pre>
+
+      <button class="copy-btn" onclick="copyCode('code1')">
+        コピー
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- 変数 -->
+<section id="variable">
+  <h2>変数をHTMLに渡す</h2>
+
+  <p>
+    Flaskでは、Pythonで作った変数をHTMLに渡して表示できる。<br>
+    HTML側では {{ 変数名 }} の形で表示。
+  </p>
+
+  <div class="image-row">
+
+    <div class="text">
+      <h2>app.py</h2>
+      <p>
+        txtという名前でHTMLに文字を渡す。
+      </p>
+    </div>
+
+    <div class="code-box">
+
+      <pre id="code2"><code>
+a = "こんにちは"
+
+@app.route('/')
+def index():
+    return render_template("index.html", txt=a)
+      </code></pre>
+
+      <button class="copy-btn" onclick="copyCode('code2')">
+        コピー
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="image-row reverse">
+
+    <div class="text">
+      <h2>index.html</h2>
+      <p>
+        {{ txt }} を使うことで、Pythonの変数を表示できる。
+      </p>
+    </div>
+
+    <div class="code-box">
+
+      <pre id="code3"><code>
+&lt;body&gt;
+  &lt;h1&gt;テスト&lt;/h1&gt;
+
+  &lt;div&gt;
+    てすとです。&lt;br&gt;
+    {{ txt }}&lt;br&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+      </code></pre>
+
+      <button class="copy-btn" onclick="copyCode('code3')">
+        コピー
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- for と if -->
+<section id="forif">
+  <h2>for文とif文の応用</h2>
+
+  <p>
+    for文を使うと繰り返し表示ができ、<br>
+    if文を使うと条件によって表示を変えらる。
+  </p>
+
+  <div class="image-row">
+
+    <div class="text">
+      <h2>コード</h2>
+
+      <p>
+        i % 2 は、2で割った余りを表す。<br>
+        余りが0なら偶数、それ以外なら奇数。
+      </p>
+    </div>
+
+    <div class="code-box">
+
+      <pre id="code4"><code>
+{% for i in range(10) %}
+
+  {% if i % 2 == 0 %}
+    {{ txt }} --偶数-- {{ i }}&lt;br&gt;
+
+  {% else %}
+    {{ txt }} --奇数-- {{ i }}&lt;br&gt;
+
+  {% endif %}
+
+{% endfor %}
+      </code></pre>
+
+      <button class="copy-btn" onclick="copyCode('code4')">
+        コピー
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CSV -->
+<section id="csv">
+  <h2>CSVファイルを読み込む</h2>
+
+  <p>
+    CSVファイルを読み込むことで、<br>
+    表や一覧のデータをWebページに表示できる。
+  </p>
+
+  <div class="image-row">
+
+    <div class="text">
+      <h2>app.py</h2>
+
+      <p>
+        csv.readerを使ってCSVファイルを読み込み、
+        HTMLに渡している。
+      </p>
+    </div>
+
+    <div class="code-box">
+
+      <pre id="code5"><code>
+from flask import Flask, render_template
+from csv import reader
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+
+    with open('./mmcsv.csv', 'r',
+              encoding="utf-8") as csv_file:
+
+        csv_reader = reader(csv_file)
+        list_mm = list(csv_reader)
+
+    return render_template(
+        "index.html",
+        mmlist=list_mm
+    )
+
+if __name__ == '__main__':
+    app.run()
+      </code></pre>
+
+      <button class="copy-btn" onclick="copyCode('code5')">
+        コピー
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="image-row reverse">
+
+    <div class="text">
+      <h2>index.html</h2>
+
+      <p>
+        for文を使ってCSVデータを1行ずつ表示。
+      </p>
+    </div>
+
+    <div class="code-box">
+
+      <pre id="code6"><code>
+{% for data in mmlist %}
+
+  {% if data[1] == "場所" %}
+
+    {{ data[1] }}&lt;br&gt;
+
+  {% else %}
+
+    &lt;a href="{{ data[3] }}"
+       target="_blank"&gt;
+
+      {{ data[1] }}
+
+    &lt;/a&gt;&lt;br&gt;
+
+  {% endif %}
+
+{% endfor %}
+      </code></pre>
+
+      <button class="copy-btn" onclick="copyCode('code6')">
+        コピー
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+
+<footer>
+  Flask 学習まとめ
+</footer>
+
+<script>
+function copyCode(id) {
+
+  const code =
+    document.getElementById(id).innerText;
+
+  navigator.clipboard.writeText(code);
+
+  const btn = event.target;
+
+  btn.innerText = "コピー済み！";
+
+  setTimeout(() => {
+    btn.innerText = "コピー";
+  }, 1500);
+}
+</script>
+
+</body>

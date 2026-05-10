@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <!-- ⑥↓タイトルを変えてみよう -->
+    <title>mizuho Arduino Uno</title>
+    <!-- ⑤スタイルシートの設定をしよう -->
+    <!-- h1.htmlからある行をコピペしてくればOK -->
+     <link rel="stylesheet" href="./css/styleneko arduino.css">
+</head>
+<body>
+<header>
+  <h1>第1回　Arduino Uno</h1>
+</header>
+
+<!-- 目次 -->
+<div class="toc">
+  <a href="#Arduino">”Arduino Uno”とは</a>
+  <a href="#buhin">部品たち<br>
+  <a href="#bureddo">・ブレッドボード</a>
+  <a href="#led">・発光ダイオード(LED)</a>
+  <a href="#akarusa">・CdSセル(明るさセンサー)</a>
+  <a href="#teikou">・抵抗</a>
+  <a href="#yattakoto">授業でやったこと</a>
+  <a href="#ledhikaraseru">・LEDを光らせる</a>
+  <a href="#cds">・CdSセルを使って明るさ測定</a>
+  <a href="#sensadeled">・暗いと点く、明るいと消える(CdSセルと発光ダイオード)</a>
+  <a href="#neo">・NeoPixel</a>
+</div>
+
+
+<!-- Arduino UNOとは -->
+<section>
+  <div id="Arduino"><div class="text">
+    <h2>”Arduino Uno”とは</h2>
+    <p>Arduino Unoとは、代表的な<b>「マイコンボード」</b>の一種<br>
+    </p>
+  </div>
+</div>
+</section>
+
+<!-- もらった部品たち -->
+<!-- ブレッドボード -->
+<h2 id="buhin">部品たち</h2>
+<section>
+    <div id="bureddo"><div class="image-row">
+    <img src="./images arduino/bureddo.PNG" alt="ブレッドボード">
+    <div class="text">
+      <h2>ブレッドボード</h2>
+      <p></p>
+    </div></div>
+  </div>
+</section>
+
+<!-- 発光ダイオード -->
+<section>
+    <div id="led"><div class="image-row">
+    <img src="./minatomirai.jpg" alt="発光ダイオード(LED)">
+    <div class="text">
+      <h2>発光ダイオード(LED)</h2>
+      <p>長い方が＋、短い方がー<br>
+        +はアノード、ーはカソード<br>
+        ⚠️＋と−を間違えると特性上機能しない！</p>
+    </div></div>
+  </div>
+</section>
+
+<!-- CdSセル -->
+<section>
+     <div id="akarusa"><div class="image-row">
+     <img src="./minatomirai.jpg" alt="CdSセル(明るさセンサー)">
+     <div class="text">
+       <h2>CdSセル(明るさセンサー)</h2>
+        <p>CdS(硫化カドミウム)を使用した光センサー<br>
+          光の強さに応じて電気抵抗が低下する抵抗器</p>
+     </div></div>
+   </div>
+</section>
+
+<!-- 抵抗 -->
+<section>
+     <div id="teikou"><div class="image-row">
+     <img src="./minatomirai.jpg" alt="抵抗">
+     <div class="text">
+       <h2>抵抗</h2>
+        <p></p>
+     </div></div>
+   </div>
+</section>
+
+<!-- 授業でやったこと -->
+<h2 id="yattakoto">授業でやったこと</h2>
+
+<!-- LEDを光らせる-->
+<section>
+  <div id="ledhikaraseru"><div class="text">
+    <h2>LEDを光らせる</h2>
+
+       <p><b>接続方法</b><br>
+        LEDの長い方（＋）を１３番ピン、短い方（ー）をGNDに</p></div>
+  <!-- 左：説明 -->
+ <div class="image-row">
+  <div class="text">
+    <h2>コード</h2>
+    <p>HIGHが5V、LOWが0V<br>
+    delayの後の()の数字で時間を変えられる<br>
+  1000で1秒、単位はms</p>
+  </div>
+
+  <div class="code-box">
+    <pre id="code1"><code>
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(13,OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  digitalWrite(13,HIGH);
+  delay(500);
+  digitalWrite(13,LOW);
+  delay(500);
+}
+    </code></pre>
+
+    <button class="copy-btn" onclick="copyCode('code1')">
+      copy
+    </button>
+  </div>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- CdSセルで明るさ測定 -->
+<section>
+  <div id="cds"><div class="text">
+    <h2>CdSセルを使って明るさ測定</h2>
+  <div class="image-row reverse">
+    <img src="./images arduino/sensa-.png" alt="明るさ調整の接続">
+    <div class="text">
+      <h2>接続方法</h2>
+      <p>赤を5V、黄色がA1、黒がGND<br>
+      ⚠️抵抗とCdSセルの片方が重なるように</p>
+    </div>
+
+  <div class="image-row">
+  <!-- 左：タイトルだけ -->
+  <div class="text">
+    <h2>コード</h2>
+    <p>これを実行すると、<br>
+    Arduino IDE 画面右上虫眼鏡マークから<br>
+    シリアルモニタで明るさを数値で見れる</p>
+  </div>
+
+  <!-- 右：コード -->
+  <div class="code-box">
+    <pre id="code2"><code>
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  int val=0;
+  val=analogRead(1);
+  Serial.println(val);
+  delay(500);
+}
+    </code></pre>
+
+    <button class="copy-btn" onclick="copyCode('code2')">
+      コピー
+    </button>
+  </div>
+    </div>
+  </div>
+  </div>
+
+  </div>
+</section>
+
+<!-- センサーの数値で発光ダイオード光る(chatGPT活用)-->
+<section>
+  <div id="sensadeled"><div class="text">
+    <h2>暗いと点く、明るいと消える(CdSセルと発光ダイオード)</h2>
+      <p><b>接続方法</b><br>
+    <a href="#ledhikaraseru">これ</a>と<a href="#cds">これ</a></p>
+</div>
+  </div>
+  
+  <div class="image-row">
+  <!-- 左：タイトル -->
+  <div class="text">
+    <h2>コード</h2>
+    <p>(あとで調整)って書いてあるところは、<br>
+    シリアルモニタの数値を見て調整必要！<br>
+  数値は人によって変わる</p>
+  </div>
+
+  <!-- 右：コード -->
+  <div class="code-box">
+    <pre id="code3"><code>
+void setup() {
+  pinMode(13, OUTPUT);
+  Serial.begin(9600); // 追加（確認用）
+}
+
+void loop() {
+  int value = analogRead(A0); // ← 光センサー読む
+  Serial.println(value);      // ← 数値確認
+
+  if (value > 500) {          // ← ここがポイント（あとで調整）
+    digitalWrite(13, HIGH);   // 暗い → 点灯
+  } else {
+    digitalWrite(13, LOW);    // 明るい → 消灯
+  }
+
+  delay(200);
+}
+    </code></pre>
+
+    <button class="copy-btn" onclick="copyCode('code3')">
+      コピー
+    </button>
+  </div>
+</div>
+</section>
+<!-- たくさんの色で光るやつ -->
+<section>
+  <div id="neo"><div class="text">
+    <h2>NeoPixel</h2>
+    <p>フルカラーLED</p>
+  </div>
+</section>
+
+
+
+
+
+<script>
+function copyCode(id) {
+  const code = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(code);
+
+  const btn = event.target;
+  btn.innerText = "コピー済み！";
+
+  setTimeout(() => {
+    btn.innerText = "コピー";
+  }, 1500);
+}
+</script>
+</body>
+<footer></footer>
